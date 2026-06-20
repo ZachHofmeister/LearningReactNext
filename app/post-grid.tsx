@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-function Post() {
+export function Post() {
 	  return (
 		<a className="" href="/">
 			<div className="rounded-[1em] overflow-hidden h-full bg-background border border-solid border-foreground text-foreground transition ease-in-out duration-250 hover:border-foreground hover:shadow-[0_0_3px_1px_var(--foreground)]">
@@ -20,7 +20,11 @@ function Post() {
 	  );
 }
 
-export default function PostGrid() {
+interface PostGridProps {
+	children?: React.ReactNode;
+}
+
+export default function PostGrid({ children }: PostGridProps) {
 	return (
 		<section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
 			<Post />
