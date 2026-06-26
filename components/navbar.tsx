@@ -1,6 +1,10 @@
-import Link from 'next/link'
+"use client";
+import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Navbar() {
+	let [scrolled, setScrolled] = useState(false);
+
 	return (
 		<nav className="hidden md:flex sticky top-0 inset-x-0 z-50 items-center justify-between px-8 py-2 transition-all duration-300 bg-background ring-blue-500 ring-inset">
 			<Link className="px-4 py-2 text-lg font-bold tracking-tight rounded-full" href={'/'}>Home</Link>
