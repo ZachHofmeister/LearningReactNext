@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="en" className={`${openSans.variable} h-full antialiased`} >
     	<body className="min-h-full flex flex-col">
         <Navbar />
-				<main>{children}</main>
+				<main className='p-10'>{children}</main>
 		  </body>
     </html>
   );
