@@ -12,6 +12,7 @@ export interface GithubRepo {
 	id: number,
 	name: string,
 	description: string,
+	pushed_at: string,
 }
 
 export function getUsername() {

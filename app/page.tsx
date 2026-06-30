@@ -2,6 +2,7 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import PostGrid from '@/components/PostGrid';
 import { getUsername, getProfileReadme } from '@/services/github';
+import GithubRepos from '@/components/GithubRepos';
 
 export default function Home() {
   return (
@@ -11,7 +12,8 @@ export default function Home() {
 			<Readme />
 		</section>
 		<section>
-			<PostGrid />
+			{/* <PostGrid /> */}
+			<GithubRepos />
 		</section>
 		</>
   );
