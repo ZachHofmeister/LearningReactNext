@@ -1,6 +1,6 @@
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import PostGrid from '@/components/post-grid';
+import PostGrid from '@/components/PostGrid';
 import { getUsername, getProfileReadme } from '@/services/github';
 
 export default function Home() {
