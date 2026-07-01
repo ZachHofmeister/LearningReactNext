@@ -2,6 +2,13 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
+const links = [
+	{id: 1, url: "/", text: "Link1"},
+	{id: 2, url: "/", text: "Link2"},
+	{id: 3, url: "/", text: "Link3"},
+	{id: 4, url: "/", text: "Link4"},
+]
+
 export default function Navbar() {
 	const [scrolled, setScrolled] = useState(false);
 
@@ -23,18 +30,11 @@ export default function Navbar() {
 		}`}>
 			<Link className="px-4 py-2 text-lg font-bold tracking-tight rounded-full" href={'/'}>Home</Link>
 			<ul className="hidden md:flex items-center gap-1">
-				<li className="">
-					<Link className="px-4 py-2 rounded-full text-sm font-medium" href={'/'}>Link</Link>
-				</li>
-				<li className="">
-					<Link className="px-4 py-2 rounded-full text-sm font-medium" href={'/'}>Link</Link>
-				</li>
-				<li className="">
-					<Link className="px-4 py-2 rounded-full text-sm font-medium" href={'/'}>Link</Link>
-				</li>
-				<li className="">
-					<Link className="px-4 py-2 rounded-full text-sm font-medium" href={'/'}>Link</Link>
-				</li>
+				{links.map(link => (
+					<li key={link.id} className="">
+						<Link className="px-4 py-2 rounded-full text-sm font-medium" href={link.url}>{link.text}</Link>
+					</li>
+				))}
 			</ul>
 			<Link className="hidden md:inline px-4 py-2 text-md font-semibold rounded-full bg-emerald-600 transition-all duration:300 hover:bg-emerald-800" href={'/Test'}>Contact Me</Link>
 		</nav>
