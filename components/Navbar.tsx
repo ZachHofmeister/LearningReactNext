@@ -1,12 +1,13 @@
 "use client";
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { Home, ArrowUpRight, Icon } from 'lucide-react';
 
 const links = [
-	{id: 1, url: "/", text: "Link1"},
-	{id: 2, url: "/", text: "Link2"},
-	{id: 3, url: "/", text: "Link3"},
-	{id: 4, url: "/", text: "Link4"},
+	{id: 1, url: "/", text: "Link1", icon: Home},
+	{id: 2, url: "/", text: "Link2", icon: Home},
+	{id: 3, url: "/", text: "Link3", icon: Home},
+	{id: 4, url: "/", text: "Link4", icon: Home},
 ]
 
 export default function Navbar() {
@@ -40,14 +41,21 @@ export default function Navbar() {
 		</nav>
 		{/* ---------- MOBILE BOTTOM NAVBAR ---------- */}
 		<nav
-			className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-background border-t-gray-200 flex items-stretch justify-center"
+			className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-background shadow-sm border-t-gray-200 flex items-stretch justify-center"
 			style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
 		>
-			<Link className="px-4 py-2.5 rounded-full text-sm font-medium" href={'/'}>Link</Link>
-			<Link className="px-4 py-2.5 rounded-full text-sm font-medium" href={'/'}>Link</Link>
-			<Link className="px-4 py-2.5 rounded-full text-sm font-medium" href={'/'}>Link</Link>
-			<Link className="px-4 py-2.5 rounded-full text-sm font-medium" href={'/'}>Link</Link>
-			<Link className="-mt-6 w-12 h-12 rounded-full justify-center text-xs font-semibold bg-emerald-600 active:scale-95 transition-transform hover:bg-emerald-800" href={'/Test'}>Start</Link>
+			{links.map(link => (
+				<Link key={link.id} className="flex-1 flex flex-col items-center justify-center gap-1 py-2.5" href={link.url}>
+					<link.icon className="w-5 h-5"/>
+					<span className="text-xs font-medium">{link.text}</span>
+				</Link>
+			))}
+			<Link className="flex flex-1 flex-col items-center justify-center" href={'/Test'}>
+				<span className="-mt-6 w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+					<ArrowUpRight className="w-5 h-5 text-white" />
+				</span>
+				<span className="text-xs font-semibold text-emerald-600 mt-0.5">Start</span>
+			</Link>
 		</nav>
 		</>
 	);
